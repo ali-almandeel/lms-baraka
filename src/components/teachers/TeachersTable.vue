@@ -13,6 +13,10 @@
             <span :class="item.isActive ? 'text-green' : 'text-red'">
                 {{ item.isActive ? $t("Active") : $t("Inactive") }}
             </span>
+
+
+
+
         </template>
 
         <template v-slot:item.actions="{ item }">
