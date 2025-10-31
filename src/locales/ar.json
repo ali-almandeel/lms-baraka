@@ -1,0 +1,20 @@
+{
+  "hello": "مرحباً",
+  "login": "تسجيل الدخول",
+  "logout": "تسجيل الخروج",
+  "dashboard": "لوحة التحكم",
+  "welcome": "مرحباً, {name}",
+  "email": "البريد الإلكتروني",
+  "password": "كلمة المرور",
+  "students.add.title": "إضافة طالب",
+  "teachers": "المعلمين",
+  "image": "الصورة",
+  "phone": "الهاتف",
+  "firstName": "الاسم",
+  "lastName": "الكنية",
+  "contact": "معلومات التواصل",
+  "status": "الحالة",
+  "subjectName": "اسم المادة",
+  "subject": "المادة",
+  "actions": "الاجراءات"
+}

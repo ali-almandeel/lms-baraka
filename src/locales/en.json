@@ -1,0 +1,19 @@
+{
+  "hello": "Hello",
+  "login": "Login",
+  "logout": "Logout",
+  "dashboard": "Dashboard",
+  "welcome": "Welcome",
+  "email": "Email",
+  "password": "Password",
+  "teachers": "Teachers",
+  "image": "Image",
+  "phone": "Phone",
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "subjectName": "Subject Name",
+  "subject": "Subject",
+  "contact": "Contact",
+  "status": "Status",
+  "actions": "Actions"
+}
