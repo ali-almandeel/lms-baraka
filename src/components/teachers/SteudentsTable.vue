@@ -20,10 +20,8 @@
         </template>
 
         <template v-slot:item.actions="{ item }">
-            <div class="d-flex gap-3">
-                <EditBtn @click="$emit('edit', item)" />
-                <DeleteBtn @click="$emit('delete', item)" />
-            </div>
+            <EditBtn @click="$emit('edit', item)" />
+            <DeleteBtn @click="$emit('delete', item)" />
         </template>
     </v-data-table>
 </template>

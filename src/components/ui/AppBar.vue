@@ -10,12 +10,7 @@
       <span class="text-body-2 text-grey-darken-1">
         {{ $t("welcome", { name: userName }) }}
       </span>
-      <!-- <svg-icon
-        class="cursor-pointer"
-        type="mdi"
-        :path="path"
-        @click="logout"
-      ></svg-icon> -->
+      <svg-icon class="cursor-pointer" type="mdi" :path="path" @click="logout"></svg-icon>
     </div>
 
     <v-menu>

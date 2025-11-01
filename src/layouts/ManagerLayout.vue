@@ -4,7 +4,7 @@
     <template v-if="!isLoginPage">
 
       <app-bar />
-      <side-bar />
+      <side-bar :items="managerItems" />
 
     </template>
 
@@ -27,7 +27,7 @@ export default {
   data() {
     return {
       // drawer: true,
-      items: [
+      managerItems: [
         { text: "Home", icon: "mdi-chart-box", link: "/home/dashboard" },
         { text: "Teachers", icon: "mdi-human-male-board", link: "/home/teachers" },
         // { text: "Courses", icon: "mdi-book-education", link: "/manager/courses" },

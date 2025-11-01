@@ -1,5 +1,5 @@
 <template>
-    <v-btn icon @click="$emit('click')">
+    <v-btn density="comfortable" class="bg-white-darken-1" icon @click="$emit('click')">
         <v-icon color="red">mdi-delete</v-icon>
     </v-btn>
 </template>
