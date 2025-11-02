@@ -3,7 +3,7 @@
   "login": "Login",
   "logout": "Logout",
   "dashboard": "Dashboard",
-  "welcome": "Welcome",
+  "welcome": "Welcome, {name}",
   "email": "Email",
   "password": "Password",
   "teachers": "Teachers",
@@ -15,5 +15,8 @@
   "subject": "Subject",
   "contact": "Contact",
   "status": "Status",
-  "actions": "Actions"
+  "actions": "Actions",
+  "select_role": "Select Role",
+  "manager": "Manager",
+  "teacher": "Teacher"
 }
