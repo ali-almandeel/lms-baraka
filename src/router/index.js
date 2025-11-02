@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "@/views/Home.vue";
-import Dashboard from "@/views/Dashboard.vue";
+import Dashboard from "@/views/DashboardView.vue";
 import Login from "@/views/Login.vue";
 import { useUserStore } from "@/stores/user";
 import { components } from "vuetify/dist/vuetify.js";
@@ -8,29 +8,40 @@ import { components } from "vuetify/dist/vuetify.js";
 
 
 const routes = [
-  { path: "/home",
-    component:()=>import('@/layouts/ManagerLayout.vue'),
-    children:[
+  {
+    path: "/home",
+    component: () => import('@/layouts/ManagerLayout.vue'),
+    children: [
       {
-      path:"dashboard",
-      name:"Dashboard",
-      component:()=>import('@/views/Dashboard.vue'),
-      meta:{requiresAuth:true}
+        path: "dashboard",
+        name: "Dashboard",
+        component: () => import('@/views/DashboardView.vue'),
+        meta: { requiresAuth: true }
       },
       {
-      path:"teachers",
-      name:"Teachers",
-      component:()=>import('@/views/TeachersView.vue'),
-      meta:{requiresAuth:true}
+        path: "teachers",
+        name: "Teachers",
+        component: () => import('@/views/TeachersView.vue'),
+        meta: { requiresAuth: true }
       },
     ]
   },
   {
-    path:"/", redirect:"/home/dashboard"
+    path: "/", redirect: "/home/dashboard"
   },
   { path: "/login", name: "Login", component: () => import('@/views/Login.vue') },
   { path: "/:pathMatch(.*)*", redirect: "/home/dashboard" },
-
+  {
+    path: "/teacherHomePage",
+    component: () => import('@/layouts/TeacherLayout.vue')
+    , children: [
+      {
+        path: "Courses",
+        name: "TeacherCourses",
+        component: () => import('@/views/CoursesView.vue')
+      }
+    ]
+  }
 ];
 
 const router = createRouter({

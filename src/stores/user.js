@@ -9,11 +9,12 @@ export const useUserStore = defineStore("user", {
   getters: {
     isAuthenticated: (state) => !!state.token,
     userName: (state) => (state.user ? state.user.name : ""),
+    teacherId: (state) => (state.user ? state.user.id : null)
   },
   actions: {
     async login(credentials) {
       // const { token, user } = await authService.login(credentials);
-      const { token, user } = await login (credentials);
+      const { token, user } = await login(credentials);
       this.token = token;
       this.user = user;
       localStorage.setItem("token", token);
