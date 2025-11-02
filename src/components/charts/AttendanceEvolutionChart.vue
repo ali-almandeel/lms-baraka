@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>Attendance Evolution</h3>
+        <h3>{{ $t("Attendance Evolution") }}</h3>
         <BaseChart :chart-data="chartData" :chart-options="chartOptions" type="line" />
     </div>
 </template>

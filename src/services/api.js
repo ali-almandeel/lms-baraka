@@ -57,7 +57,7 @@
 
 import axios from "axios";
 import { useUserStore } from "@/stores/user";
-
+import router from '@/router';
 // Use proxy in development, real backend in production
 export const baseURL = import.meta.env.DEV ? "/api" : "https://school-barakah.vercel.app";
 
@@ -78,8 +78,10 @@ api.interceptors.request.use(
   (config) => {
     try {
       const userStore = useUserStore();
-      if (userStore.token) {
+      if (userStore?.token) {
         config.headers.Authorization = `Bearer ${userStore.token}`;
+        console.log("API request Autorization header:", config.headers.Authorization);
+
       }
     } catch (error) {
       // Fail silently if called outside setup
@@ -89,9 +91,12 @@ api.interceptors.request.use(
   (error) => {
     if (error.response) {
       if (error.response.status === 401) {
-        localStorage.removeItem("token");
-        localStorage.removeItem("user");
-        window.location.reload();
+        // localStorage.removeItem("token");
+        // localStorage.removeItem("user");
+        // window.location.reload();
+        const userStore = useUserStore();
+        userStore.logout();
+        router.push("/login"); // redirect to login page
       }
     }
     throw error;

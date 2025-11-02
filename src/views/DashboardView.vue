@@ -1,24 +1,30 @@
 <template>
-  <div class="dashboard">
-    <!-- Cards -->
-    <div class="cards" style="display:flex; gap:1rem; margin-bottom:2rem;">
-      <div class="card" v-for="(count, key) in totals" :key="key"
-        style="padding:1rem; background:#f5f5f5; border-radius:8px; flex:1; text-align:center;">
-        <h4>{{ key }}</h4>
-        <p style="font-size:1.5rem; font-weight:bold;">{{ count }}</p>
-      </div>
+  <v-container>
+    <div class="d-flex justify-space-between align-center">
+      <h2 class="text-h4 font-weight-bold">{{ $t("dashboard") }}</h2>
+      <span class="text-subtitle-2 text-grey-darken-1">{{ $t("welcome") }} {{ userName }}</span>
     </div>
+    <div class="dashboard">
+      <!-- Cards -->
+      <div class="cards" style="display:flex; gap:1rem; margin-bottom:2rem;">
+        <div class="card" v-for="(count, key) in totals" :key="key"
+          style="padding:1rem; border: 1px solid gray;  border-radius:8px; flex:1; text-align:center;">
+          <h4>{{ $t(key) }}</h4>
+          <p style="font-size:1.5rem; font-weight:bold;">{{ count }}</p>
+        </div>
+      </div>
 
-    <!-- Charts -->
-    <div class="charts" style="display:flex; gap:2rem;">
-      <div style="flex:1;">
-        <AttendanceEvolutionChart />
-      </div>
-      <div style="flex:1;">
-        <AttendanceByCourseChart />
+      <!-- Charts -->
+      <div class="charts" style="display:flex; gap:2rem;">
+        <div style="flex:1;">
+          <AttendanceEvolutionChart />
+        </div>
+        <div style="flex:1;">
+          <AttendanceByCourseChart />
+        </div>
       </div>
     </div>
-  </div>
+  </v-container>
 </template>
 
 <script>

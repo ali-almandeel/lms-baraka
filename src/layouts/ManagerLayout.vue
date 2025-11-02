@@ -31,7 +31,7 @@ export default {
         { text: "Home", icon: "mdi-chart-box", link: "/home/dashboard" },
         { text: "Teachers", icon: "mdi-human-male-board", link: "/home/teachers" },
         // { text: "Courses", icon: "mdi-book-education", link: "/manager/courses" },
-        // { text: "Students", icon: "mdi-account-school", link: "/manager/students" },
+        { text: "Students", icon: "mdi-account-school", link: "/home/students" },
         // { text: "Buses", icon: "mdi-bus-multiple", link: "/manager/buses" },
         // { text: "Classes", icon: "mdi-google-classroom", link: "/manager/classes" },
       ],
