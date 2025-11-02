@@ -1,5 +1,5 @@
 <template>
-    <v-btn density="comfortable" icon @click="$emit('click')">
+    <v-btn density="comfortable" icon @click="$emit('click', $event)">
         <v-icon color="orange">mdi-pencil</v-icon>
     </v-btn>
 </template>

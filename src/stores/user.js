@@ -5,6 +5,7 @@ export const useUserStore = defineStore("user", {
   state: () => ({
     user: JSON.parse(localStorage.getItem("user")) || null,
     token: localStorage.getItem("token") || null,
+    isAuthenticated: !!localStorage.getItem('token')
   }),
   getters: {
     isAuthenticated: (state) => !!state.token,
@@ -17,6 +18,7 @@ export const useUserStore = defineStore("user", {
       const { token, user } = await login(credentials);
       this.token = token;
       this.user = user;
+      this.isAuthenticated = true;
       localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(user));
       return true;

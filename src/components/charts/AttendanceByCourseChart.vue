@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>Attendance by Course</h3>
+        <h3>{{ $t("Attendance by Course") }}</h3>
         <BaseChart :chart-data="chartData" :chart-options="chartOptions" type="bar" />
     </div>
 </template>

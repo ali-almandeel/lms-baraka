@@ -1,25 +1,23 @@
 <template>
   <v-container class="px-6 d-flex flex-column gap-6 min-h-screen">
-    <!-- Header -->
+
     <div class="d-flex justify-space-between align-center">
       <h2 class="text-h4 font-weight-bold">{{ $t("teachers") }}</h2>
       <span class="text-subtitle-2 text-grey-darken-1">{{ $t("welcome") }} {{ userName }}</span>
     </div>
 
-    <!-- Add Button -->
-    <v-btn color="primary" class="mb-4" @click="openAddDialog">
+
+    <v-btn color="primary" class="mb-4 w-[25%]" @click="openAddDialog">
       {{ $t("addTeacher") }}
     </v-btn>
 
-    <!-- Teachers Table -->
+
     <teachers-table :teachers="teachers" :headers="tHeaders" :subjects="subjects" :isLoading="isLoading"
       @edit="openEditDialog" @delete="openDeleteDialog" @view="openViewDialog" />
 
-    <!-- Teacher Dialog (Add/Edit/View) -->
     <TeacherDialog v-if="dialogVisible" v-model="dialogVisible" :teacher="selectedTeacher" :subjects="subjects"
       :dialogType="dialogType" @save="saveTeacher" />
 
-    <!-- Delete Confirmation -->
     <v-dialog v-model="deleteDialogVisible" max-width="400">
       <v-card>
         <v-card-title>{{ $t("Confirm Delete") }}</v-card-title>
@@ -49,10 +47,11 @@ export default {
       isLoading: false,
       selectedTeacher: null,
       dialogVisible: false,
-      dialogType: "add", // add | edit | view
+      dialogType: "add",
       deleteDialogVisible: false,
       teacherToDelete: null,
       headerBase: [
+        { titleKey: "image", key: "imageUrl" },
         { titleKey: "firstName", key: "firstName" },
         { titleKey: "lastName", key: "lastName" },
         { titleKey: "subjectName", key: "subjectName" },
@@ -149,6 +148,7 @@ export default {
           yearsOfExperience: Number(teacher.yearsOfExperience),
           isActive: teacher.isActive,
           gender: teacher.gender,
+          imageUrl: teacher.imageUrl || null,
         };
 
         if (!teacher.id) {

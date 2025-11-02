@@ -20,6 +20,7 @@
 import AppBar from '../components/ui/AppBar.vue';
 import SideBar from '../components/ui/SideBar.vue';
 import CoursesView from '../views/CoursesView.vue';
+import vuetify from '../plugins/vuetify';
 export default {
     name: 'ManagerLayout',
     components: {
