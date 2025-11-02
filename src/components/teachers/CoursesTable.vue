@@ -1,27 +1,25 @@
 <template>
-    <v-data-table :headers="headers" :loading="isLoading" loading-text="Loading Teachers" :items="teachers"
+    <v-data-table :headers="headers" :loading="isLoading" loading-text="Loading Teachers" :items="students"
         class="elevation-3 px-2">
-        <template v-slot:item.imageUrl="{ item }">
+        <!-- <template v-slot:item.imageUrl="{ item }">
             <v-avatar size="40">
                 <img :src="item.imageUrl" alt="Avatar" />
             </v-avatar>
-        </template>
+        </template> -->
 
 
 
-        <template v-slot:item.status="{ item }">
+        <!-- <template v-slot:item.status="{ item }">
             <span :class="item.isActive ? 'text-green' : 'text-red'">
                 {{ item.isActive ? $t("Active") : $t("Inactive") }}
             </span>
-
-
-
-
-        </template>
+        </template> -->
 
         <template v-slot:item.actions="{ item }">
-            <EditBtn @click="$emit('edit', item)" />
-            <DeleteBtn @click="$emit('delete', item)" />
+            <div class="d-flex gap-3">
+                <EditBtn @click="$emit('edit', item)" />
+                <DeleteBtn @click="$emit('delete', item)" />
+            </div>
         </template>
     </v-data-table>
 </template>
@@ -32,13 +30,13 @@ import DeleteBtn from '../ui/DeleteBtn.vue';
 import EditBtn from '../ui/EditBtn.vue';
 
 export default {
-    name: "TeachersTable",
+    name: "CoursesTable",
     components: {
         EditBtn,
         DeleteBtn
     },
     props: {
-        teachers: {
+        students: {
             type: Array,
             required: true
         },
@@ -46,17 +44,7 @@ export default {
             type: Array,
             required: true
         },
-        subjects: {
-            type: Array,
-            required: true
-        },
         isLoading: Boolean
     },
-    methods: {
-        getSubjectName(subjectId) {
-            const subject = this.subjects.find(s => s.id === subjectId);
-            return subject ? subject.name : this.$t("noSubjectAssigned");
-        }
-    }
 };
 </script>

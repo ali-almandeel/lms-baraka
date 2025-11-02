@@ -16,5 +16,8 @@
   "status": "الحالة",
   "subjectName": "اسم المادة",
   "subject": "المادة",
-  "actions": "الاجراءات"
+  "actions": "الاجراءات",
+  "select_role": "اختر نوع الحساب",
+  "manager": "مدير",
+  "teacher": "معلم"
 }

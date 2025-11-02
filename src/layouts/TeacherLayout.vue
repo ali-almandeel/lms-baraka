@@ -16,28 +16,32 @@
 
 <script>
 // import 'SideBar.vue'
+// import SteudentsTable from '../components/teachers/SteudentsTable.vue';
 import AppBar from '../components/ui/AppBar.vue';
 import SideBar from '../components/ui/SideBar.vue';
+import CoursesView from '../views/CoursesView.vue';
 export default {
     name: 'ManagerLayout',
     components: {
         SideBar,
-        AppBar
+        AppBar,
+        // StudentsView
+        CoursesView
     },
     data() {
         return {
             // drawer: true,
             teacherItems: [
-                { text: "My Students", icon: "mdi-account-group", link: "/teacherHomePage/students" },
+                { text: "My Coursres", icon: "mdi-account-group", link: "/teacherHomePage/courses" },
                 // { text: "My Courses", icon: "mdi-book-open-page-variant", link: "/teacher/courses" },
                 // { text: "My Sessions", icon: "mdi-calendar-clock", link: "/teacher/sessions" },
             ]
         };
     },
-    computed: {
-        isLoginPage() {
-            return this.$route.name === "Login";
-        },
-    },
+    // computed: {
+    //     isLoginPage() {
+    //         return this.$route.name === "Login";
+    //     },
+    // },
 };
 </script>

@@ -9,8 +9,8 @@
           <v-text-field v-model="email" :label="$t('email')" variant="outlined" density="comfortable" />
           <v-text-field v-model="password" :label="$t('password')" type="password" variant="outlined"
             density="comfortable" />
-          <v-select v-model="selectedRole" :items="roles" label="Select Role" variant="outlined" density="comfortable"
-            required>
+          <v-select v-model="selectedRole" :items="roles" :label="$t('select_role')" variant="outlined"
+            density="comfortable" required>
 
           </v-select>
         </v-form>
@@ -29,12 +29,19 @@ import { useUserStore } from "@/stores/user";
 
 export default {
   name: "Login",
+  // computed: {
+  //   roles() {
+  //     return [this.$t('manager'), this.$t('teacher')]
+  //   }
+  // },
   data() {
     return {
-      email: "knowledge@hub.com",
-      password: "password123",
+      // email: "knowledge@hub.com",
+      email: "",
+      // password: "password123",
+      password: "",
+      roles: ["Manager", "Teacher"],
       selectedRole: null,
-      roles: ['Manager', 'Teacher'],
       loading: false,
     };
   },
@@ -52,13 +59,14 @@ export default {
         const success = await userStore.login({
           email: this.email,
           password: this.password,
+
         });
         if (success) {
           if (this.selectedRole === "Manager") {
             this.$router.replace(this.$route.query.redirect || "/home/dashboard");
           }
           else if (this.selectedRole === "Teacher") {
-            this.$router.replace("/teacherHomePage/students")
+            this.$router.replace("/teacherHomePage/Courses")
           }
         }
       } catch (e) {

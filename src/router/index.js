@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "@/views/Home.vue";
-import Dashboard from "@/views/Dashboard.vue";
+import Dashboard from "@/views/DashboardView.vue";
 import Login from "@/views/Login.vue";
 import { useUserStore } from "@/stores/user";
 import { components } from "vuetify/dist/vuetify.js";
@@ -15,7 +15,7 @@ const routes = [
       {
         path: "dashboard",
         name: "Dashboard",
-        component: () => import('@/views/Dashboard.vue'),
+        component: () => import('@/views/DashboardView.vue'),
         meta: { requiresAuth: true }
       },
       {
@@ -36,9 +36,9 @@ const routes = [
     component: () => import('@/layouts/TeacherLayout.vue')
     , children: [
       {
-        path: "students",
-        name: "TeacherStudents",
-        component: () => import('@/views/StudentsView.vue')
+        path: "Courses",
+        name: "TeacherCourses",
+        component: () => import('@/views/CoursesView.vue')
       }
     ]
   }
